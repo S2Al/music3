@@ -1,4 +1,4 @@
-exports.TOKEN = process.env.BOT_TOKEN; // حط توكن البوت هنا
+exports.TOKEN = 'process.env.BOT_TOKEN'; // حط توكن البوت هنا
 
 exports.PREFIX = '+';//برفكس البوت هو يلي بيشغل لاغاني
 
