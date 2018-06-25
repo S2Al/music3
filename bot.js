@@ -205,5 +205,82 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`بدء تشغيل: **${song.title}**`);
 }
-client.login(process.env.BOT_TOKEN);
 
+client.on('message', message => {
+	var prefix = "1";
+    
+      if (!message.content.startsWith(prefix)) return;
+      var args = message.content.split(' ').slice(1);
+      var argresult = args.join(' ');
+      if (message.author.id == 354653862533136387) return;
+    
+    
+    if (message.content.startsWith(prefix + 'playing')) {
+    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    client.user.setGame(argresult);
+        message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
+    } else
+    
+     
+    if (message.content.startsWith(prefix + 'streem')) {
+    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    client.user.setGame(argresult, "https://discord.gg/D6N2Cx5");
+        message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
+    } else
+    
+    if (message.content.startsWith(prefix + 'setname')) {
+    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+      client.user.setUsername(argresult).then
+          message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
+      return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
+    } else
+        
+    if (message.content.startsWith(prefix + 'setavatar')) {
+    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    client.user.setAvatar(argresult);
+        message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+    } else
+    
+    
+    if (message.content.startsWith(prefix + 'watching')) {
+    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+        client.user.setActivity(argresult, {type : 'watching'});
+     message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
+    }
+    
+     });
+
+	 
+	 
+client.on("message", message => {
+ if (message.content === "2help") {
+        message.react("✅")
+           message.react("📬")
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setDescription(`
+══════════ஜ۩۞۩ஜ════════════  
+    
+     2play
+     امر تشغيل الأغنية , !شغل الرابط او اسم الأعنية
+     2skip
+     تغير الأغنية
+     2pause
+     ايقاف الأغنية
+     2resume
+     مواصلة الأغنية
+     2vol
+     2 لتغيير درجه الصوت 100
+     2stop
+     خروج البوت من الروم
+══════════ஜ۩۞۩ஜ════════════ 
+ `)
+
+   message.author.sendEmbed(embed)
+   
+   }
+   }); 
+
+
+
+client.login(process.env.BOT_TOKEN);
